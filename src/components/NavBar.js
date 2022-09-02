@@ -1,6 +1,5 @@
 import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import CartWidget from './CartWidget';
 import foto from '../assets/logo_maquinaria.png';
 
 const NavBar = () => {
@@ -28,9 +27,7 @@ const NavBar = () => {
                         <Nav.Link href="#nosotros">Sobre nosotros</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#carrito">
-                            <FontAwesomeIcon icon={faCartShopping} /> Carrito
-                        </Nav.Link>
+                        <CartWidget cantItems={4} />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
