@@ -11,7 +11,7 @@ const ItemListContainer = ({ mensaje }) => {
         getItems.then((res) => {
             setItems(res)
         })
-    })
+    },[])
 
     return (
         <Container>
