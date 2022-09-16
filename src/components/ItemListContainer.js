@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import ItemCount from "./ItemCount.js";
+
 import ItemList from "./ItemList.js";
+import { useParams } from 'react-router-dom';
 import { getItems } from "./getItems.js";
 
-const ItemListContainer = ({ mensaje }) => {
+const ItemListContainer = () => {
     const [items, setItems] = useState([])
+    const { idCategory } = useParams()
 
     useEffect(() => {
-        getItems.then((res) => {
-            setItems(res)
-        })
-    },[])
+        if (idCategory) {
+            getItems.then((res) => {
+                setItems(res.filter(item => item.categoryId === parseInt(idCategory)))
+            })
+        } else {
+            getItems.then((res) => {
+                setItems(res)
+            })
+        }
+    }, [idCategory])
 
     return (
-        <Container>
-            <p>{mensaje}</p>
-            <ItemCount stock='5' initial='0' onAdd={(stock_disp, cantidad) => { if (stock_disp && cantidad > 0) { alert('Se han agregado ' + cantidad + ' de items al carrito.') } }} />
-            <br />
+        <Container className="pt-5">
             <ItemList items={items} />
         </Container>
     );

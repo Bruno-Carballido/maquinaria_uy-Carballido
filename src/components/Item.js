@@ -1,22 +1,29 @@
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
+import { Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
+    const bottomdiv = {
+        background: '#cb694b',
+        color: '#fff'
+    }
     return (
-        <Col>
+        <Col >
             <Card >
-                <Card.Header>{item.name}</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                        {item.description}
-                        <br />
-                        <br />
-                        <Button variant="secondary">Ver detalles del producto</Button>
-                    </Card.Text>
+                <Card.Body className='p-0'>
+                    <img src={item.img} className="img-fluid" alt="img prod"></img>
                 </Card.Body>
                 <Card.Footer>
-                    <small className="text-muted">Stock disponible: {item.stock}</small>
+                    <Row>
+                        <Col>
+                            <h5>{item.name}</h5>
+                            <small className="text-muted">Stock disponible: {item.stock}</small>
+                        </Col>
+                        <Col xs='auto' className='d-flex align-items-end flex-column'>
+                            <Link className="btn mt-auto" style={bottomdiv} type='Button' to={'/item/' + item.id}>Detalles</Link>
+                        </Col>
+                    </Row>
                 </Card.Footer>
             </Card>
         </Col>

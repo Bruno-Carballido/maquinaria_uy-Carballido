@@ -1,25 +1,26 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import ItemCount from "./ItemCount.js";
 import React, { useState } from 'react';
-import { Row, Card } from 'react-bootstrap';
+import { Row, Card, Col } from 'react-bootstrap';
 
 const ItemDetail = ({ item }) => {
-    console.log(item.img)
+    console.log(item)
     return (
-        <Row style={{maxHeight: '20em'}}>
-            <div className="col-6">
-                <img src={item.img} className="img-fluid" alt='Cosechadora'/>
-            </div >
-            <div className="col-6">
-                <Card style={{height: '100%'}}>
+        <Row style={{ maxHeight: '20em' }}>
+            <Col xs={12} md={6}>
+                <img src={item.img} className="img-fluid" alt='Imagen producto' />
+            </Col >
+            <Col xs={12} md={6}>
+                <Card style={{ height: '100%' }}>
                     <Card.Body>
-                        <h1>{item.name}</h1>
-                        <p>{item.description}</p>
-                        <h3>{item.precio}</h3>
+                        <h3>{item.name}</h3>
+                        <hr />
+                        <p className='pt-2 pb-3'>{item.description}</p>
+
+                        <h4>Precio: {item.price}</h4>
+                        <ItemCount stock={item.stock} initial='0' onAdd={(stock_disp, cantidad) => { if (stock_disp && cantidad > 0) { alert('Se han agregado ' + cantidad + ' de items al carrito.') } }} />
                     </Card.Body>
                 </Card>
-            </div>
+            </Col>
         </Row>
     );
 }
