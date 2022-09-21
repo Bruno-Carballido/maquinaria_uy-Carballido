@@ -1,6 +1,6 @@
 import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap';
 import CartWidget from './CartWidget';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import foto from '../assets/logo_maquinaria.png';
 
 const NavBar = () => {
@@ -23,9 +23,9 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link type='Button' className="btn btn-outline " style={links} to='/category/1'>Maquinaria</Link>
-                        <Link type='Button' className="btn btn-outline " style={links} to='/category/2'>Implementos</Link>
-                        <Link type='Button' className="btn btn-outline " style={links} to='/category/3'>Repuestos</Link>
+                        <NavLink type='Button' className="btn btn-outline " style={links} to='/category/1'>Maquinaria</NavLink>
+                        <NavLink type='Button' className="btn btn-outline " style={links} to='/category/2'>Implementos</NavLink>
+                        <NavLink type='Button' className="btn btn-outline " style={links} to='/category/3'>Repuestos</NavLink>
                     </Nav>
                     <Nav>
                         <CartWidget cantItems={4} />
