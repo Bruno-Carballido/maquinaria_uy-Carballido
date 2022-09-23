@@ -5,8 +5,8 @@ const CartContext = ({ children }) => {
 
     const isInCart = (itemId) => {
         let ret = false
-        for (it in contextSate) {
-            if (it.item.id == itemId) {
+        for (let it of contextSate) {
+            if (it && it.item.id == itemId) {
                 ret = true
             }
         }
@@ -15,32 +15,34 @@ const CartContext = ({ children }) => {
 
     const getItemQuantity = (itemId) => {
         let ret = 0
-        for (it in contextSate) {
-            if (it.item.id == itemId) {
+        for (let it of contextSate) {
+            if (it && it.item.id == itemId) {
                 ret = it.quantity
             }
         }
         return ret
     }
 
-    const removeItem = (itemId) => {
+    const removeItemContext = (itemId) => {
         let newContext = []
-        for (it in contextSate) {
-            if (it.item.id != itemId) {
+        for (let it of contextSate) {
+            if (it && it.item.id != itemId) {
                 newContext.push(it)
             }
         }
-        setContextSate(newContext)
+        return newContext
     }
 
     const addItem = (item, quantity) => {
         let q = quantity
-        if (isInCart(item.id)) {
-            q = getItemQuantity(item.id + quantity)
-            removeItem(item.id)
-        }
-        setContextSate([...contextSate, { item: item, quantity: q }])
         console.log(contextSate)
+        if (contextSate && isInCart(item.id)) {
+            q = getItemQuantity(item.id) + quantity
+            let contx = removeItemContext(item.id)
+            setContextSate([...contx, { item: item, quantity: q }])
+        } else {
+            setContextSate([...contextSate, { item: item, quantity: q }])
+        }
     }
 
     const clear = () => {
@@ -48,7 +50,7 @@ const CartContext = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ addItem, removeItem, clear, isInCart, contextSate, setContextSate }}>
+        <AppContext.Provider value={{ addItem, removeItemContext, clear, isInCart, contextSate, setContextSate }}>
             {children}
         </AppContext.Provider>
     )

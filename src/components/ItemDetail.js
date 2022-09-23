@@ -10,7 +10,7 @@ const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
-    const {addItem, removeItem, clear, isInCart, contextSate, setContextSate} = useContext(AppContext);
+    const {addItem} = useContext(AppContext);
 
     const handleModalClose = () => setShowModal(false);
     const handleModalShow = () => setShowModal(true);
