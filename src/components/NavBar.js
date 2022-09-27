@@ -28,7 +28,7 @@ const NavBar = () => {
                         <NavLink type='Button' className="btn btn-outline " style={links} to='/category/3'>Repuestos</NavLink>
                     </Nav>
                     <Nav>
-                        <CartWidget cantItems={4} />
+                        <CartWidget/>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -23,6 +23,23 @@ const CartContext = ({ children }) => {
         return ret
     }
 
+    const getCantItems = () => {
+        let ret = 0
+        for (let it of contextSate) {
+            ret += it.quantity
+        }
+        return ret
+    }
+
+    const getPrecioTotal = () => {
+        let ret = 0
+        for (let it of contextSate) {
+            let precio = it.item.price.split(' ')[1]
+            ret += Number(precio) * (it.quantity)
+        }
+        return ret
+    }
+
     const removeItemContext = (itemId) => {
         let newContext = []
         for (let it of contextSate) {
@@ -30,6 +47,7 @@ const CartContext = ({ children }) => {
                 newContext.push(it)
             }
         }
+        setContextSate(newContext)
         return newContext
     }
 
@@ -50,7 +68,7 @@ const CartContext = ({ children }) => {
     }
 
     return (
-        <AppContext.Provider value={{ addItem, removeItemContext, clear, isInCart, contextSate, setContextSate }}>
+        <AppContext.Provider value={{ addItem, removeItemContext, clear, isInCart, getCantItems, getPrecioTotal, contextSate, setContextSate }}>
             {children}
         </AppContext.Provider>
     )
