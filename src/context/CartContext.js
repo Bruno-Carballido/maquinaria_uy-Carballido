@@ -53,7 +53,6 @@ const CartContext = ({ children }) => {
 
     const addItem = (item, quantity) => {
         let q = quantity
-        console.log(contextSate)
         if (contextSate && isInCart(item.id)) {
             q = getItemQuantity(item.id) + quantity
             let contx = removeItemContext(item.id)

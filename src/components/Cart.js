@@ -5,26 +5,25 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const { getCantItems, getPrecioTotal, contextSate, removeItemContext } = useContext(AppContext);
-
     return (
         <Container className="pt-5">
             {getCantItems() > 0 ?
                 <>
                     <Col xs={12} md={6}>
                         {contextSate.map(i =>
-                            <Card className='mt-4'>
+                            <Card key={i.item.id} className='mt-4'>
                                 <Row>
                                     <Col xs={12} md={4}>
-                                        <img src={i.item.img} style={{ maxHeight: '10em' }} className="img-fluid" alt='Imagen producto' />
+                                        <img src={i.item.img} style={{ maxHeight: '10em' }} className="img-fluid ms-4 mt-2 mb-2" alt='Imagen producto' />
                                     </Col>
                                     <Col xs={12} md={5}>
                                         <div style={{ height: '100%' }} className="d-flex flex-grow-1 align-items-center">
-                                            <p>
+                                            <span>
                                                 <h5>{i.item.name}</h5>
                                                 <br />
                                                 <h6>Precio: {i.item.price}</h6>
                                                 <h6>Cantidad: x{i.quantity}</h6>
-                                            </p>
+                                            </span>
                                         </div>
                                     </Col>
                                     <Col xs={12} md={3}>
