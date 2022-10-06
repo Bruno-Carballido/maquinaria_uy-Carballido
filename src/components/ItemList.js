@@ -1,4 +1,3 @@
-import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import Item from './Item';
 

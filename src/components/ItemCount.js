@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [valor, setValor] = useState(Number(initial))
     return (
-        <div className="col-4 card">
+        <div className="col-auto card mx-auto w-50">
             <div className="card-body">
                 <InputGroup className="mb-3">
                     <Button onClick={() => { if (valor > 0) { setValor(valor - 1) } }} variant="outline-secondary">-</Button>

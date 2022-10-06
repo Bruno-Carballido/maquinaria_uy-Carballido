@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import ItemList from "./ItemList.js";
 import { useParams } from 'react-router-dom';
-import { getItems } from "./getItems.js";
+import { getItems, getItemByCategory } from "./getItems.js";
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([])
@@ -11,11 +11,13 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         if (idCategory) {
-            getItems.then((res) => {
-                setItems(res.filter(item => item.categoryId === parseInt(idCategory)))
+            getItemByCategory(idCategory).then((res) => {
+                setItems(res)
+            }).catch(() => {
+                console.log('Items no encontrados')
             })
         } else {
-            getItems.then((res) => {
+            getItems().then((res) => {
                 setItems(res)
             })
         }
