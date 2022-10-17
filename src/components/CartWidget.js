@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { AppContext } from '../context/CartContext'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { AppContext } from '../context/CartContext';
 
 const CartWidget = () => {
 

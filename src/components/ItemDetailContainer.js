@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import ItemDetail from "./ItemDetail.js";
-import { getItemById } from "./getItems.js";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
+import { getItemById } from "./getItems.js";
+import ItemDetail from "./ItemDetail.js";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({})

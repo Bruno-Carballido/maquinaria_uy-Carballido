@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 
-import ItemList from "./ItemList.js";
 import { useParams } from 'react-router-dom';
-import { getItems, getItemByCategory } from "./getItems.js";
+import { getItemByCategory, getItems } from "./getItems.js";
+import ItemList from "./ItemList.js";
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([])

@@ -1,16 +1,15 @@
-import ItemCount from "./ItemCount.js";
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { AppContext } from '../context/CartContext'
-import { Row, Card, Col, Button } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../context/CartContext';
+import ItemCount from "./ItemCount.js";
 
 const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
     const [showModal, setShowModal] = useState(false);
 
-    const {addItem} = useContext(AppContext);
+    const { addItem } = useContext(AppContext);
 
     const handleModalClose = () => setShowModal(false);
     const handleModalShow = () => setShowModal(true);

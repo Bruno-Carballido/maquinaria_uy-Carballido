@@ -1,7 +1,7 @@
-import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap';
-import CartWidget from './CartWidget';
-import { NavLink, Link } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 import foto from '../assets/logo_maquinaria.png';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
     const links = {
@@ -28,7 +28,7 @@ const NavBar = () => {
                         <NavLink type='Button' className="btn btn-outline " style={links} to='/category/3'>Repuestos</NavLink>
                     </Nav>
                     <Nav>
-                        <CartWidget/>
+                        <CartWidget />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
