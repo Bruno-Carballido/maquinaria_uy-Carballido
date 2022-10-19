@@ -11,3 +11,6 @@ Se buscó construir una interfaz simple que permitiese aplicar las tareas del cu
 Se separaron 3 categorías principales: Maquinaria, Implementos y Repuestos para agregar variedad a los productos mostrados y poder probar diferentes combinaciones de atributos.
 
 Este trabajo podría ser extendido y aplicado a una tienda real, agregando algunas funciones extra como Login, y medio de pagos electrónicos.
+
+### GIF con procedimiento de compra
+![GIF de compra](./compra.gif "Compra")
